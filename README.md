@@ -23,7 +23,7 @@ Caso queira manipular apenas um elemento da lista em Jquery
 form.jquery(form.Input1);
 
 Caso queira manipular apenas um elemento da lista em Javascript
-form.javascript(form.Input1);
 
+form.javascript(form.Input1);
 
 
