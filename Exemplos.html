@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exemplo</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Exemplo</h1>
+        <hr>
+        <form action="">
+            <div class="form-group">
+                <label for="">Nome</label>
+                <input type="text" name="Nome" id="Nome" value="Otavio" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="">Idade</label>
+                <input type="number" name="Idade" id="Idade" value="29" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="">Cidade</label>
+                <input type="text" name="Cidade" id="Cidade" value="São Paulo" class="form-control" />
+            </div>
+            <label for="" class="label label-default" id="Resultado"></label>
+        </form>
+        <div id="tablePessoa">
+        </div>
+
+        <div id="tableEscola">
+
+        </div>
+
+    </div>
+
+    <script src="mapDom.js"></script>
+    <script>
+        var form = new MapDom(['Nome','Idade','Cidade','Resultado']);
+       
+       form.javascript();
+       
+       form.Resultado.textContent=form.Nome.value+ ", " +form.Idade.value +", "+form.Cidade.value;
+       
+       console.log(form.Nome.value+ "," +form.Idade.value +","+form.Cidade.value);
+    </script>
+</body>
+
+</html>
