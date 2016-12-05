@@ -4,13 +4,19 @@
   var i = 0;
   var arg = null;
   var msg = null;
-  var hasOnw = null;
+  var hasOnw = Object.prototype.hasOwnProperty;
   var obj = {};
+
+  const isArray = (obj) => Object.prototype.toString.call(obj) === '[object Array]';
+  const checkProperty = (obj, param) => hasOnw.call(obj, param);
+  const validate = (param) => (typeof param === "string" 
+                                && (param.trim() !== "" ||
+                                    param.trim() !== "undefined"))  
 
   MapDom.prototype.javascript = mapJavascript;
   MapDom.prototype.isNullorEmpty = isNullorEmpty;
 
-  function MapDom() {
+  function MapDom () {
     arg = arguments;
     for (var name in arg) {
       property = arg[name];
@@ -21,8 +27,7 @@
     }
   };
 
-  function mapJavascript(param) {
-    hasOnw = Object.prototype.hasOwnProperty;
+  function mapJavascript (param) {
     if (param) {
       if (isArray(param)) {
         i = 0;
@@ -48,36 +53,20 @@
   function isNullorEmpty() {
 
     msg = [];
-    hasOnw = Object.prototype.hasOwnProperty;
     for (name in this) {
-      if (checkProperty(this, name)) {
-        property = this[name];
-        if (isArray(property)) {
-          if (!validate(property.join(","))) {
-            msg.push(name);
-          }
-        } else if (!validate(property)) {
-          msg.push(name);
-        }
-      }
-
+      (checkProperty(this, name)) 
+        ? (isArray(this[name]))
+          ? (!validate(this[name].join(","))) 
+            ? msg.push(name)
+            : null
+          : null
+        : (!validate(property))
+          ? msg.push(name)
+          : null
+      
       return msg;
     }
   }
-
-  // const resetWhile = (objeto) => {
-  //   len = objeto.length;
-  //   i = 0;
-  //   obj = objeto;
-  // };
-
-  const validate = (param) => (typeof param === "string" 
-                                && (param.trim() !== "" ||
-                                    param.trim() !== "undefined"))  
-
-  const isArray = (obj) => Object.prototype.toString.call(obj) === '[object Array]';
-
-  const checkProperty = (obj, param) => hasOnw.call(obj, param);
 
   root.MapDom = MapDom;
 
