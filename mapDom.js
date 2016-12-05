@@ -23,12 +23,9 @@
 
   function mapJavascript(param) {
     hasOnw = Object.prototype.hasOwnProperty;
-    if (param && param !== 0) {
+    if (param) {
       if (isArray(param)) {
-        // resetWhile(param);
-        len = objeto.length;
         i = 0;
-        // obj = objeto;
         while (i < param.length) {
           if (checkProperty(this, param[i])) {
             this[param[i]] = document.getElementById(param[i]);
@@ -68,15 +65,11 @@
     }
   }
 
-  const resetWhile = (objeto) => {
-    len = objeto.length;
-    i = 0;
-    obj = objeto;
-  };
-
-  const increase = (i) => i += 1;
-
-  const decrease = (i) => i -= 1;
+  // const resetWhile = (objeto) => {
+  //   len = objeto.length;
+  //   i = 0;
+  //   obj = objeto;
+  // };
 
   const validate = (param) => (typeof param === "string" 
                                 && (param.trim() !== "" ||
@@ -88,4 +81,4 @@
 
   root.MapDom = MapDom;
 
-})(window)
+})(this)
