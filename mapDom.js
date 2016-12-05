@@ -11,14 +11,13 @@
   MapDom.prototype.isNullorEmpty = isNullorEmpty;
 
   function MapDom() {
-
     arg = arguments;
     for (var name in arg) {
       property = arg[name];
 
-      (isArray(property))
-        ? property.forEach((el, i) => this[el] = el);
-        : this[property] = property;
+      (isArray(arg[name]))
+        ? arg[name].forEach((el, i) => this[el] = el)
+        : this[property] = arg[name]
     }
   };
 
@@ -89,4 +88,4 @@
 
   root.MapDom = MapDom;
 
-})(this)
+})(window)
