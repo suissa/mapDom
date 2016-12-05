@@ -38,13 +38,24 @@
 
     <script src="mapDom.js"></script>
     <script>
+
+        // Exemplo 1
         var form = new MapDom(['Nome','Idade','Cidade','Resultado']);
        
        form.javascript();
        
        form.Resultado.textContent=form.Nome.value+ ", " +form.Idade.value +", "+form.Cidade.value;
        
-       console.log(form.Nome.value+ "," +form.Idade.value +","+form.Cidade.value);
+       //Exemplo2
+
+       form = new MapDom(['Nome','Idade','Cidade','Resultado']);
+
+       form.javascript(['Idade','Cidade']);
+
+       form.javascript('Resultado');
+
+       console.log(form);
+       
     </script>
 </body>
 
