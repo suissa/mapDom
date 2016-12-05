@@ -63,7 +63,6 @@
         : (!validate(property))
           ? msg.push(name)
           : null
-      
       return msg;
     }
   }
