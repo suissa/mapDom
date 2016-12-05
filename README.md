@@ -18,7 +18,7 @@ form.javascript();
 
 //Mapear uma propriedade do objeto para javascript
 
-form.javascript(form.Input1);
+form.javascript('Input');
 
 //Mapear mais de uma propriedade do objeto para javascript
 
