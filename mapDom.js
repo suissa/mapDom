@@ -1,11 +1,11 @@
 (function (root) {
-  var property,
-    len,
-    i,
-    arg,
-    msg,
-    hasOnw,
-    obj;
+  var property = null;
+  var len = 0;
+  var i = 0;
+  var arg = null;
+  var msg = null;
+  var hasOnw = null;
+  var obj = {};
 
   MapDom.prototype.javascript = mapJavascript;
   MapDom.prototype.isNullorEmpty = isNullorEmpty;
@@ -16,19 +16,9 @@
     for (var name in arg) {
       property = arg[name];
 
-      if (isArray(property)) {
-        // resetWhile(property);
-        // len = property.length;
-        var i = 0;
-        // obj = property;
-        while (i < property.length) {
-          this[property[i]] = property[i];
-          ++i;
-          // increase(i);
-        };
-      } else {
-        this[property] = property;
-      }
+      (isArray(property))
+        ? property.forEach((el, i) => this[el] = el);
+        : this[property] = property;
     }
   };
 
